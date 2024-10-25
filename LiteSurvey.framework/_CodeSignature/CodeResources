@@ -4,10 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>.DS_Store</key>
-		<data>
-		Y/zzZVahlzqsXsKRy9ythZX/tmM=
-		</data>
 		<key>Headers/BatteryInfoModel.h</key>
 		<data>
 		SsLkcxCItSFw7+TAUxlTdO0GY1w=
@@ -46,7 +42,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		3uH/TDTf5nyfV8+ayyzh0z3L5XQ=
+		uQbMR4PDF1fYXQaT+kR65/6wD5Q=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
