@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LiteSurvey"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "A short description of LiteSurvey."
 
   # This description is used to generate tags and improve search results.
@@ -117,7 +117,6 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  spec.requires_arc = true
   spec.vendored_frameworks = "LiteSurvey.framework"
 
 end
