@@ -116,7 +116,8 @@ Pod::Spec.new do |spec|
   #  If your library depends on compiler flags you can set them in the xcconfig hash
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
-
+  
+  spec.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   spec.vendored_frameworks = "LiteSurvey.framework"
 
 end
