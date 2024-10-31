@@ -12,14 +12,15 @@ typedef NS_ENUM(NSUInteger, GnssSystem){
     GnssSystemGPS = 0,//"G", "GPS", "GPS"
     GnssSystemGLONASS,//"R", "GLO", "GLONASS"
     GnssSystemGALILEO,//"E", "GAL", "GALILEO"
-    GnssSystemBeidou,//"C", "BDS", "Beidou"
-    GNSSSystemQZSS //"J", "QZSS", "QZSS"
+    GNSSSystemQZSS, //"J", "QZSS", "QZSS"
+    GnssSystemBeidou//"C", "BDS", "Beidou"
 };
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class SignalInfoModel;
 
+/// GNSS Satellite information
 @interface SatelliteInfoModel : NSObject
 
 /// GNSS system / constellation of this satellite

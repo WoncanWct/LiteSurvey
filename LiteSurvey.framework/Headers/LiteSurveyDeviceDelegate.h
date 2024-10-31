@@ -13,24 +13,27 @@
 #import <LiteSurvey/BatteryInfoModel.h>
 #import <LiteSurvey/ImuInfoModel.h>
 
+/// Types of NMEA messages
 typedef NS_ENUM(NSUInteger, NmeaType) {
+    /// NMEA GGA message (Global Positioning System Fix Data)
     NmeaTypeGGA = 1,
+    /// NMEA GSA message (GNSS DOP and Active Satellites)
     NmeaTypeGSA,
+    /// NMEA GSV message (GNSS Satellites In View)
     NmeaTypeGSV,
+    /// NMEA RMC message (Recommended Minimum Specific GNSS Data)
     NmeaTypeRMC,
+    /// NMEA VTG message (Course Over Ground & Ground Speed)
     NmeaTypeVTG,
+    /// NMEA GST message (GNSS Pseudorange Error Statistics)
     NmeaTypeGST,
+    /// NMEA ZDA message (Time & Date)
     NmeaTypeZDA
 };
 
-typedef NS_ENUM(NSUInteger, GnssOutputRate) {
-    GnssRate200Ms = 200,
-    GnssRate500Ms = 500,
-    GnssRate1Sec = 1000,
-    GnssRate2Sec = 2000,
-    GnssRate5Sec = 5000
-};
 
+
+/// Delegate for monitoring data and connection status of LiteSurvey devices
 @protocol LiteSurveyDeviceDelegate <NSObject>
 
 @optional

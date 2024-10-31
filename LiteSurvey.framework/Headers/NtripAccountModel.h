@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Ntrip account details
 @interface NtripAccountModel : NSObject
 
 /// IP address or URL

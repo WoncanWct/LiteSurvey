@@ -8,6 +8,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 /// Gnss fix status
+///
 /// status Integer representing the fix status as defined in NMEA GGA message
 typedef NS_ENUM(NSUInteger,GnssFixStatus){
     GnssFixSingle = 1,// GNSS single solution, differential data not in use
@@ -19,6 +20,7 @@ typedef NS_ENUM(NSUInteger,GnssFixStatus){
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Location class as reported by LiteSurvey devices. Inherits from the system Location class.
 @interface LiteSurveyLocationModel : CLLocation
 /// GNSS fix status
 @property (nonatomic,assign) GnssFixStatus fixStatus;
@@ -44,6 +46,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// Position dilution of precision
 @property (nonatomic,assign) float pdop;
 
+/// Geoidal Separation in meters
+///
+/// The difference between the WGS-84 earth ellipsoid surface and mean-sea-level (geoid) surface
+@property (nonatomic,assign) float geoidalSeparationMeters;
 
 @end
 

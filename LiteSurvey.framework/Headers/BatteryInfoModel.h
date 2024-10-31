@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// LiteSurvey device battery information
 @interface BatteryInfoModel : NSObject
 
 /// Battery percentage remaining

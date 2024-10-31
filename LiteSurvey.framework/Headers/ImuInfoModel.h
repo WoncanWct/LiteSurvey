@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Inertial measurement unit (IMU) data
 @interface ImuInfoModel : NSObject
 
 /// Accelerometer X,Y,Z data in unit of gravitational acceleration g

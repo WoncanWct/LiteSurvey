@@ -6,11 +6,11 @@
 	<dict>
 		<key>Headers/BatteryInfoModel.h</key>
 		<data>
-		SsLkcxCItSFw7+TAUxlTdO0GY1w=
+		UlmTRkVvp4ph2q3tOd35ixPF3f8=
 		</data>
 		<key>Headers/ImuInfoModel.h</key>
 		<data>
-		H7gz5DKTOKhhmArLPUIPA88GYJc=
+		C40GeYrJ9wsS37NQZE+V/g9NwDc=
 		</data>
 		<key>Headers/LiteSurvey.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/LiteSurveyDeviceDelegate.h</key>
 		<data>
-		Gghp5OshOqFUfZKU+lXF7k4SIaw=
+		OFAUAg9cIadfEZjKhVZNl/01xAc=
 		</data>
 		<key>Headers/LiteSurveyDeviceInfoModel.h</key>
 		<data>
@@ -26,19 +26,19 @@
 		</data>
 		<key>Headers/LiteSurveyDeviceInterface.h</key>
 		<data>
-		/IVDNEbrtMTrUU5aueQLTES2OXM=
+		Nkxk5uYVFxb8K1paJiMZiP6ZPYc=
 		</data>
 		<key>Headers/LiteSurveyLocationModel.h</key>
 		<data>
-		VUyxzMxJ9JogglNcYUBDH85fhM8=
+		xvCGr6gEtBIFvwRLqCP29WoIqi8=
 		</data>
 		<key>Headers/NtripAccountModel.h</key>
 		<data>
-		mkc1R83tN4O3UsdXOaGo4hx1VS0=
+		LP6hUh40X+Xd/pXCxz5FcnRqGMk=
 		</data>
 		<key>Headers/SatelliteInfoModel.h</key>
 		<data>
-		7EDT7bSBfp2qqUqb9iTEEXXv0z0=
+		mAFC+PlPT6MgtQ0h5W55YpzvRBQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -55,14 +55,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			InpBoyL1T0YbyUE96opZZnO9E0/rB9XfjcbTSItwM+I=
+			qhfibrMul4chLCgtsUGkfzMvn45EZxJuefbPCdDkwrg=
 			</data>
 		</dict>
 		<key>Headers/ImuInfoModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Xs9k6D4OoUusadOVDLxlcZ7YKp8TJ11WYuKMVQQ+lG0=
+			B+/V4IyFnaNqR6ISwAclIIsjAS+BaGrGKidrtvg71Mw=
 			</data>
 		</dict>
 		<key>Headers/LiteSurvey.h</key>
@@ -76,7 +76,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8MWPVdyQMTQ7bFkHZ0kax/nM3oDjLUnPOSkcWrwfJYE=
+			sIvwBsNnZk9tObrqHfx6bfgCAa+Xn+JSUbKigF0KdSE=
 			</data>
 		</dict>
 		<key>Headers/LiteSurveyDeviceInfoModel.h</key>
@@ -90,28 +90,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0/rnAPRvNnX3gmdFgtYIvL9lWL3K+5lyMy6NTkt3Mf8=
+			nVwnqFQwpiAYI/bmDttw9tASCyGZMoz5Qu2NnK2s80M=
 			</data>
 		</dict>
 		<key>Headers/LiteSurveyLocationModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			L1WB+Py9SqUnobUa46A2GO9zbezn5LJc6H41LTS6Enw=
+			BB6pxmpMqCFEJGxQxSxSPRWkNkFd2AqokeUYl4ulplo=
 			</data>
 		</dict>
 		<key>Headers/NtripAccountModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8vpAGVt6u0mQM092HE5rgSTfXR5XBOBumTr4Vyge6p0=
+			7VE+f5DJ087d1AE9/mKmB7SgRD+3JM9AdYI1xqs/qxE=
 			</data>
 		</dict>
 		<key>Headers/SatelliteInfoModel.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0INEihY8gTqTmRcZ0GDrgzA0tHQnIh+Rlemj+9Cq0Pk=
+			WpvGya3Q/wEzLlaTjuT6/ucy8OtGT/dRbxRVCTze+cg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

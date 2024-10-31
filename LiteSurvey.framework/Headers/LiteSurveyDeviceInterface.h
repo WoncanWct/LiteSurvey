@@ -19,28 +19,49 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+///  This interface provides access to LiteSurvey devices.
+///
+///  Methods contained in this interface allow applications to
+///  1. Scan for, connect to, and disconnect from LiteSurvey devices;
+///  2. Change the settings of device's output or peripherals;
+///  3. Receive notifications when data have arrived from the device;
+///  4. Query basic information about the device.
+///
+///  Implemented by the LiteSurveyDevice class.
 @interface LiteSurveyDeviceInterface : NSObject
+
 @property (nonatomic, weak) id<LiteSurveyDeviceDelegate> delegate;
 
 /// Display name of the LiteSurvey device
 @property (nonatomic,copy) NSString *displayName;
 
+
 - (instancetype)initWithDelegate:(id<LiteSurveyDeviceDelegate>)delegate;
 
 /// Scans for LiteSurvey devices (Bluetooth and USB serial).
-/// The given callback will be called for each discovered LiteSurvey device.
+///
+/// If a LiteSurvey device is already discovered by the system when this function is called,
+/// device connection will be automatically established. Otherwise, an Accessory Picker window will be shown.
+/// After establishing a connection, the deviceDidConnect callback will be called.
 - (void)startScan;
 
-/// Attempts to disconnect from the LiteSurvey device. Monitor its progress with the onDisconnect callback
+/// Attempts to disconnect from the LiteSurvey device. Monitor its progress with the deviceDidDisconnect callback
 - (void)disconnect;
 
 
-- (void)setGnssSystems:(NSDictionary *)outputRate;
+/// Set the constellation systems used in position
+/// - Parameters:
+///   - enableGPS: TRUE = enable GPS system, FALSE = disable GPS system
+///   - enableGLONASS: TRUE = enable GLONASS system, FALSE = disable GLONASS system
+///   - enableGALILEO: TRUE = enable GALILEO system, FALSE = disable GALILEO system
+///   - enableQZSS: TRUE = enable QZSS system,FALSE = disable QZSS system
+///   - enableBeidou: TRUE = enable Beidou system, FALSE = disable Beidou system
+- (void)setGnssSystems:(BOOL)enableGPS enableGLONASS:(BOOL)enableGLONASS enableGALILEO:(BOOL)enableGALILEO enableQZSS:(BOOL)enableQZSS enableBeidou:(BOOL)enableBeidou;
 
 /// Sets the output rate of an NMEA message
 /// - Parameters:
 ///   - nmeaType: Type of an NMEA message
-///   - enable: NMEA enable
+///   - enable: TRUE: enable FALSE:disable
 - (void)setNmeaOutput:(NmeaType)nmeaType enable:(BOOL)enable;
 
 /// Enable the output of a RTCM message (if supported)
@@ -59,14 +80,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setImuOutput:(int)rateMillis;
 
 /// Query whether firmware upgrade is available for this LiteSurvey device.
-/// Monitor the onFirmwareUpgradeAvailability callback for results.
 ///
+/// Monitor the didReceiveFirmwareUpgradeAvailability callback for results.
 /// This request will send your basic device information (device ID, serial number, etc.) to Woncan servers.
 - (void)queryFirmwareUpgrade;
 
 /// Attempts to upgrade the firmware of this LiteSurvey device.
-/// Monitor the onFirmwareUpgradeProgress callback for upgrade progress
 ///
+/// Monitor the firmwareUpgradeDidProgress callback for upgrade progress
 /// This request will send your basic device information (device ID, serial number, etc.) to Woncan servers.
 - (void)startFirmwareUpgrade;
 
