@@ -48,8 +48,23 @@ $ pod install
 ### Manually
 
 If you prefer not to use either of the aforementioned dependency managers, you can integrate LiteSurvey into your project manually.
-
 添加LiteSurvey后需要在项目target->General->Frameworks,Libraries,and Embedded Content,修改引入的 LiteRTK.framework的Embed到Embed&Sign选项.
+
+### 权限配置
+
+为了使设备与LiteSurvye保持正常的数据通信，您的项目在集成了LiteSurvey后还需要在Info.plist添加如下配置：
+
+```
+    <key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+		<string>external-accessory</string>
+	</array>
+	<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.woncan.data</string>
+	</array>
+```
 
 LiteSurvey目前是基于`Objective-C`开发，如果接入的项目也是OC环境可以直接引入`#import <LiteSurvey/LiteSurvey.h>`开始使用，<br>如果是`Swift`环境需要在桥接文件`bridging-header`里面引入`#import <LiteSurvey/LiteSurvey.h>`
 
