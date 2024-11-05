@@ -53,17 +53,17 @@ If you prefer not to use Cocoapods, you can integrate LiteSurvey into your proje
 
 You will need to Embed & Sign the LiteSurvey.framework file:
 
-![](images/EmbeddedContent.jpg)
+![](Images/EmbeddedContent.jpg)
 
 ### 2. Configure info.plist
 
 Add "com.woncan.data" as a supported external accessory protocol:
 
-![](images/SupportedExternalAccessoryProtocols.jpg)
+![](Images/SupportedExternalAccessoryProtocols.jpg)
 
 If device connection in background mode is desired, you may optionally add the "External accessory communication" Background mode under "Signing and Capabilities".
 
-![](images/BackgroundModes.jpg)
+![](Images/BackgroundModes.jpg)
 
 ### 3. Import the Objective-C header
 
