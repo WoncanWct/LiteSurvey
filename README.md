@@ -75,14 +75,14 @@ Use the `LiteSurveyDeviceInterface.startScan` method to start scanning.
 
 ### 5. Receive device data (e.g. location)
 
-When connecting to a device, register a delegate implementing the `LiteSurveyDeviceDelegate` interface to receive device data.
+While initializing `LiteSurveyDeviceInterface`, register a delegate implementing the `LiteSurveyDeviceDelegate` interface to receive device data.
 
 ### Code example
 
 The following code snippet is a minimal code example in Swift that
 
-1. Scans for nearby LiteSurvey devices.
-2. After connection, prints the location information reported by the device to debug output.
+1. Scans for and connect to LiteSurvey devices.
+2. Prints the location information reported by the device to debug output.
 
 ```Swift
 class ViewController: UIViewController,LiteSurveyDeviceDelegate {
