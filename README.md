@@ -15,11 +15,13 @@ This SDK is also used in Woncan's official iOS app, LiteGPS.
 
 ## iOS system requirement
 
-iOS 13.0+
+iOS 13.0 or above is required.
 
 ## How to use the SDK in your own app
 
-### CocoaPods
+### 1. Adding LiteSurvey as a dependency
+
+**Method 1: CocoaPods (preferred)**
 
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
@@ -45,45 +47,42 @@ Then, run the following command:
 $ pod install
 ```
 
-### Manually
+**Method 2: Manual integration**
 
-If you prefer not to use either of the aforementioned dependency managers, you can integrate LiteSurvey into your project manually.
-添加LiteSurvey后需要在项目target->General->Frameworks,Libraries,and Embedded Content,修改引入的 LiteRTK.framework的Embed到Embed&Sign选项.
+If you prefer not to use Cocoapods, you can integrate LiteSurvey into your project manually. The SDK framework file is available under "Releases".
 
-### 权限配置
+You will need to Embed & Sign the LiteSurvey.framework file:
 
-为了使设备与LiteSurvye保持正常的数据通信，您的项目在集成了LiteSurvey后还需要在Info.plist添加如下配置：
+![](images/EmbeddedContent.jpg)
 
-```
-    <key>UIBackgroundModes</key>
-	<array>
-		<string>bluetooth-central</string>
-		<string>external-accessory</string>
-	</array>
-	<key>UISupportedExternalAccessoryProtocols</key>
-	<array>
-		<string>com.woncan.data</string>
-	</array>
-```
+### 2. Configure info.plist
 
-LiteSurvey目前是基于`Objective-C`开发，如果接入的项目也是OC环境可以直接引入`#import <LiteSurvey/LiteSurvey.h>`开始使用，<br>如果是`Swift`环境需要在桥接文件`bridging-header`里面引入`#import <LiteSurvey/LiteSurvey.h>`
+Add "com.woncan.data" as a supported external accessory protocol:
 
----
+![](images/SupportedExternalAccessoryProtocols.jpg)
 
-### Scanning for devices
+If device connection in background mode is desired, you may optionally add the "External accessory communication" Background mode under "Signing and Capabilities".
 
-Use the `LiteSurveyDeviceInterface` object to start and stop scanning.
+![](images/BackgroundModes.jpg)
 
-### Receive device data (e.g. location)
+### 3. Import the Objective-C header
 
-When connecting to a device, register a delegate implementing the `LiteSurveyDeviceDelegate` abstract class to receive device data.
+LiteSurvey SDK is written in Objective-C. Add `#import <LiteSurvey/LiteSurvey.h>` to your Objective-C source file to start using the SDK. For applications developed in Swift, a bridging header is required.
+
+### 4. Scanning for devices
+
+Use the `LiteSurveyDeviceInterface.startScan` method to start scanning.
+
+### 5. Receive device data (e.g. location)
+
+When connecting to a device, register a delegate implementing the `LiteSurveyDeviceDelegate` interface to receive device data.
 
 ### Code example
 
 The following code snippet is a minimal code example in Swift that
 
-1. 搜索或者直接使用已连接的LiteSurvey device.
-2. Prints the location information reported by the device to Logcat.
+1. Scans for nearby LiteSurvey devices.
+2. After connection, prints the location information reported by the device to debug output.
 
 ```Swift
 class ViewController: UIViewController,LiteSurveyDeviceDelegate {
@@ -93,39 +92,38 @@ class ViewController: UIViewController,LiteSurveyDeviceDelegate {
         liteSurveyInterface = LiteSurveyDeviceInterface(delegate: self)
   }
 
-  //search device
+    //Scanning for LiteSurvey devices
     public func toSearch() {
         liteSurveyInterface?.startScan()
     }
 
-  // Receive Location delegate
+    // Receive Location delegate
     func didReceiveLocation(_ location: LiteSurveyLocationModel!) {
         print(location!)
     }
 }
 ```
 
-
-
 ## Location information reported by the SDK
 
 Location information is reported as the `LiteSurveyLocationModel` class. This class inherits from the system Location class [ `CLLocation`](https://developer.apple.com/documentation/corelocation/cllocation?language=objc#). Please see `LiteSurveyLocationModel` class definition for details.
 
-Table: LiteSurvey SDK support for system Location class parameters
+Table: LiteSurvey SDK support for system `CLLocation` class parameters
 
-|            Parameter            | Supported by LiteSurvey | Notes                         |
-| :-----------------------------: | ----------------------- | ----------------------------- |
-|            coordinate           | Yes                     |                               |
-|            altitude             | Yes                     |                               |
-|        horizontalAccuracy       | Yes                     |                               |
-|         verticalAccuracy        | Yes                     |                               |
-|             course              | No                      |                               |
-|          courseAccuracy         | No                      |                               |
-|             speed               | Yes                     |                               |
-|          speedAccuracy          | No                      |                               |
-|            timestamp            | Yes                     |                               |
-|             floor               | No                      |                               |
-|        sourceInformation        | Yes                     |                               |
+|      Parameter      | Supported by LiteSurvey | Note                                          |
+| :-----------------: | ----------------------- | --------------------------------------------- |
+|     coordinate      | Yes                     |                                               |
+|      altitude       | Yes                     |                                               |
+| ellipsoidalAltitude | No                      | Use the custom property wgs84Altitude instead |
+| horizontalAccuracy  | Yes                     |                                               |
+|  verticalAccuracy   | Yes                     |                                               |
+|       course        | Yes                     |                                               |
+|   courseAccuracy    | No                      |                                               |
+|        speed        | Yes                     |                                               |
+|    speedAccuracy    | No                      |                                               |
+|      timestamp      | Yes                     |                                               |
+|        floor        | No                      |                                               |
+|  sourceInformation  | Yes                     |                                               |
 
 ## Contact email
 
